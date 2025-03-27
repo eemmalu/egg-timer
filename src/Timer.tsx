@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const Timer = (props: {duration: number}) => {
+export const Timer = (props: {duration: number; onCancelClick: () => void}) => {
     const [time, setTime] = useState<number>(props.duration);
 
     useEffect(() => {
@@ -19,5 +19,6 @@ export const Timer = (props: {duration: number}) => {
 
     return <>
         <div>{formatTime()}</div>
+        <button onClick={props.onCancelClick}>Cancel</button>
     </>
 }

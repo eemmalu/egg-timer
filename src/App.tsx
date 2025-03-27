@@ -17,6 +17,10 @@ export const App = () => {
   const doStartClick = (): void => {
     setPage({kind: "timer"});
   }
+
+  const doCancelClick = (): void => {
+    setPage({kind: "homepage"});
+  }
   
-  return page.kind === "homepage" ? (<Homepage onEggTimerClick={doEggTimerClick} onStartClick={doStartClick}/>) : (<Timer duration={duration}/>);
+  return page.kind === "homepage" ? (<Homepage onEggTimerClick={doEggTimerClick} onStartClick={doStartClick}/>) : (<Timer duration={duration} onCancelClick={doCancelClick}/>);
 }
