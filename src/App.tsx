@@ -7,7 +7,7 @@ type Page =
   | {kind: "timer"};
 
 export const App = () => {
-  const [page, setPage] = useState<Page>({kind: "homepage"});
+  const [page, setPage] = useState<Page>({kind: "timer"});
   
-  return page.kind === "homepage" ? (<Homepage/>) : (<Timer duration={100}/>);
+  return page.kind === "homepage" ? (<Homepage/>) : (<Timer duration={10}/>);
 }
