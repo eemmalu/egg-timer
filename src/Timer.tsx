@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import useSound from 'use-sound';
+import sparkle from './assets/sparkle-sound.mp3';
 
 export const Timer = (props: {duration: number; onCancelClick: () => void}) => {
     const [time, setTime] = useState<number>(props.duration);
+    const [sparkleSound] = useSound(sparkle);
 
     // waits one second before changing the time
     useEffect(() => {
@@ -9,6 +12,8 @@ export const Timer = (props: {duration: number; onCancelClick: () => void}) => {
             setTimeout(() => {
                 setTime(time - 1);
             }, 1000);
+        } else {
+            sparkleSound();
         }
     }, [time]);
 
