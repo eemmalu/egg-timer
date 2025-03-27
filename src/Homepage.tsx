@@ -1,16 +1,8 @@
-import { Component, JSX } from "react";
+import { useState, useEffect } from "react";
 
-type HomepageState = {
-};
+export const Homepage = () => {
 
-export class Homepage extends Component<{}, HomepageState> {
-  constructor(props: {}) {
-    super(props);
-  }
-
-  render = (): JSX.Element => {
     return <>
-      <div>homepage</div>
+        <div>homepage</div>
     </>
-  }
 }

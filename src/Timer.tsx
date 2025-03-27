@@ -1,20 +1,16 @@
-import { Component, JSX } from "react";
+import { useState, useEffect } from "react";
 
-type TimerProps = {
-    seconds: bigint;
-}
+export const Timer = (props: {duration: number}) => {
 
-type TimerState = {
-};
+    const [time, setTime] = useState<number>(props.duration);
 
-export class Timer extends Component<{}, TimerState> {
-  constructor(props: TimerProps) {
-    super(props);
-  }
+    useEffect(() => {
+        setTimeout(() => {
+            setTime(time - 1);
+        }, 1000);
+    }, [time]);
 
-  render = (): JSX.Element => {
     return <>
-      <div>timer</div>
+        <div>{time}</div>
     </>
-  }
 }
