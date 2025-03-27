@@ -10,17 +10,16 @@ export const App = () => {
   const [page, setPage] = useState<Page>({kind: "homepage"});
   const [duration, setDuration] = useState<number>(0);
 
+  // updates boil duration based on the egg type 
   const doEggTimerClick = (boilTime : number): void => {
     setDuration(boilTime);
-  }
-
-  const doStartClick = (): void => {
     setPage({kind: "timer"});
   }
 
+  // cancels timer and returns to homepage
   const doCancelClick = (): void => {
     setPage({kind: "homepage"});
   }
   
-  return page.kind === "homepage" ? (<Homepage onEggTimerClick={doEggTimerClick} onStartClick={doStartClick}/>) : (<Timer duration={duration} onCancelClick={doCancelClick}/>);
+  return page.kind === "homepage" ? (<Homepage onEggTimerClick={doEggTimerClick}/>) : (<Timer duration={duration} onCancelClick={doCancelClick}/>);
 }
