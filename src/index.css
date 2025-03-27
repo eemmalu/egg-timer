@@ -6,6 +6,7 @@
   font-size: calc(20px + 2vw);
   color: #301f47;
   background-color: #d4e9ff;
+  overflow: hidden;
 }
 
 body {
@@ -64,9 +65,19 @@ body {
 
 
 @media (max-width: 600px) {
+  * {
+    overflow: auto;
+    font-size: calc(30px + 2vw);
+  }
+
+  .home-body {
+    gap: 15px;
+  }
+
   .egg-container {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
   }
 
   .egg-option {
