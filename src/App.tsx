@@ -7,7 +7,16 @@ type Page =
   | {kind: "timer"};
 
 export const App = () => {
-  const [page, setPage] = useState<Page>({kind: "timer"});
+  const [page, setPage] = useState<Page>({kind: "homepage"});
+  const [duration, setDuration] = useState<number>(0);
+
+  const doEggTimerClick = (boilTime : number): void => {
+    setDuration(boilTime);
+  }
+
+  const doStartClick = (): void => {
+    setPage({kind: "timer"});
+  }
   
-  return page.kind === "homepage" ? (<Homepage/>) : (<Timer duration={10}/>);
+  return page.kind === "homepage" ? (<Homepage onEggTimerClick={doEggTimerClick} onStartClick={doStartClick}/>) : (<Timer duration={duration}/>);
 }
